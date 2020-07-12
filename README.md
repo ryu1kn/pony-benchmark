@@ -1,7 +1,7 @@
 
-# Web app performance benchmark
+# Pony performance benchmark
 
-Seeing Pony's web framework performance against those of Rust and Go.
+Pony's web framework performance against those of Rust and Go.
 
 For details on how to run each version, check README in their directories.
 
