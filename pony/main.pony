@@ -1,5 +1,6 @@
 use "http_server"
 use "jennet"
+use "valbytes"
 
 actor Main
   new create(env: Env) =>
@@ -12,7 +13,7 @@ actor Main
       end
 
     let server =
-      Jennet(auth, env.out)
+      Jennet(auth, env.out, MinimalResponder)
         .> get("/", H)
         .> get("/:name", H)
         .serve(ServerConfig(where port' = "8080"))
@@ -28,3 +29,7 @@ primitive H is RequestHandler
         ].values()).array()
     ctx.respond(StatusResponse(StatusOK), body)
     consume ctx
+
+class val MinimalResponder is Responder
+  fun apply(res: Response, body: ByteArrays, ctx: Context box) =>
+    ctx.session.send(res, body, ctx.request_id)
