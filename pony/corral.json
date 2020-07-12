@@ -1,0 +1,8 @@
+{
+  "deps": [
+    {
+      "locator": "github.com/theodus/jennet.git"
+    }
+  ],
+  "info": {}
+}
