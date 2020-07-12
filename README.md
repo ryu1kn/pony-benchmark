@@ -23,8 +23,8 @@ echo 'GET http://localhost:8080/health' | vegeta attack -duration 2m
 ```sh
 $ vegeta report < result-pony.bin
 Requests      [total, rate, throughput]         6000, 50.01, 50.01
-Duration      [total, attack, wait]             2m0s, 2m0s, 580.17µs
-Latencies     [min, mean, 50, 90, 95, 99, max]  454.439µs, 1.621ms, 1.895ms, 2.074ms, 2.113ms, 2.349ms, 9.794ms
+Duration      [total, attack, wait]             2m0s, 2m0s, 1.898ms
+Latencies     [min, mean, 50, 90, 95, 99, max]  421.927µs, 1.61ms, 1.831ms, 1.954ms, 1.993ms, 2.505ms, 10.556ms
 Bytes In      [total, mean]                     120000, 20.00
 Bytes Out     [total, mean]                     0, 0.00
 Success       [ratio]                           100.00%

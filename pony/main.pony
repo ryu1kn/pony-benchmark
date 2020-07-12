@@ -1,5 +1,6 @@
 use "http_server"
 use "jennet"
+use "json"
 use "valbytes"
 
 actor Main
@@ -21,7 +22,11 @@ actor Main
 
 primitive H is RequestHandler
   fun apply(ctx: Context): Context iso^ =>
-    ctx.respond(StatusResponse(StatusOK), """{"status":"healthy"}""".array())
+    let doc = JsonDoc
+    let obj = JsonObject
+    obj.data("status") = "healthy"
+    doc.data = obj
+    ctx.respond(StatusResponse(StatusOK), doc.string().array())
     consume ctx
 
 class val MinimalResponder is Responder
